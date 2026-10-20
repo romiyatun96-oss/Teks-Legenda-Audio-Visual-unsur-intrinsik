@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echoes of Nusantara - Eksplorasi Unsur Intrinsik Legenda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'bounce-slow': 'bounce 3s infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .typewriter-text::after {
+            content: '|';
+            color: #fbbf24;
+            font-weight: bold;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans transition-colors duration-700" id="app-body">
+
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-4xl flex flex-col relative z-10" id="main-container">
+        
+        <!-- Header -->
+        <header class="text-center mb-8 hidden" id="game-header">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-semibold mb-3 tracking-widest uppercase">
+                <i class="fas fa-feather-alt"></i> Sastra & Budaya Indonesia
+            </div>
+            <h1 class="text-3xl md:text-5xl font-serif text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-500 mb-2">Echoes of Nusantara</h1>
+            <p class="text-slate-400 text-sm md:text-base">Eksplorasi Interaktif Unsur Intrinsik Legenda Daerah</p>
+        </header>
+
+        <!-- Dynamic Content Area -->
+        <div id="content-area" class="flex-grow flex flex-col justify-center">
+            <!-- Konten akan diisi oleh JavaScript -->
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 text-center py-4 text-xs text-slate-500 border-t border-white/5">
+        <p>Echoes of Nusantara &bull; Media Pembelajaran Bahasa & Sastra Indonesia</p>
+    </footer>
+
+    <!-- Background Elements -->
+    <div class="fixed inset-0 z-0 pointer-events-none opacity-25" id="bg-overlay">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-950"></div>
+    </div>
+
+    <script>
+        const legendsData = {
+            prambanan: {
+                id: 'prambanan',
+                title: "Roro Jonggrang",
+                region: "Sleman, DIY",
+                image: "https://images.unsplash.com/photo-1584810359583-96fc3448beaa?auto=format&fit=crop&w=800&q=80",
+                fallbackImage: "https://placehold.co/800x500/1e293b/fbbf24?text=Candi+Prambanan+(Roro+Jonggrang)",
+                themeClasses: ["bg-slate-900", "from-slate-800", "to-slate-950"],
+                icon: "fa-chess-rook",
+                color: "text-amber-300",
+                btnGradient: "from-amber-400 to-yellow-500",
+                story: "Di suatu masa yang silam, di wilayah Sleman yang subur, berdirilah Kerajaan Prambanan yang makmur dan damai. Suasana tenteram itu mendadak berubah menjadi mencekam ketika Kerajaan Pengging yang dipimpin oleh Bandung Bondowoso yang sakti dan kejam, menyerang serta menaklukkan Prambanan. Dari sudut pandang pencerita yang melihat segalanya, tragedi ini bermula dari ambisi penguasa yang tamak akan kekuasaan.\n\nBandung Bondowoso yang pongah terpikat oleh kecantikan putri Raja Prambanan, Roro Jonggrang. Ia memaksa sang putri untuk menjadi permaisurinya. Roro Jonggrang yang berwatak cerdik dan sangat mencintai rakyatnya tidak sudi menikah dengan pembunuh ayahnya, namun ia juga tidak berani menolak secara terang-terangan demi mencegah pertumpahan darah lebih lanjut.\n\nUntuk menggagalkan niat buruk itu, Roro Jonggrang memutar otak dan mengajukan syarat yang mustahil: membangun seribu candi dalam waktu satu malam sebelum fajar menyingsing. Dengan kesombongannya, Bondowoso menyanggupi syarat tersebut. Pada tengah malam yang gelap gulita, ia mengerahkan ribuan pasukan jin gaib untuk membangun candi dengan kecepatan yang luar biasa.\n\nMenjelang dini hari, candi ke-999 telah berdiri tegak. Roro Jonggrang yang panik segera membangunkan para dayang keraton. Ia memerintahkan mereka menumbuk lesung, membakar jerami di ufuk timur, dan menaburkan bunga harum. Suasana yang riuh dan terang fajar buatan itu membuat ayam-ayam berkokok, sehingga pasukan jin lari ketakutan mengira pagi benar-benar telah tiba.\n\nMengetahui siasat licik Roro Jonggrang, Bandung Bondowoso murka luar biasa dan mengutuk sang putri menjadi arca batu untuk melengkapi candi keseribu. Kisah ini membawa amanat yang mendalam bahwa kesombongan dan pemaksaan kehendak tidak akan membawa kebahagiaan, serta kelicikan yang dilakukan pada akhirnya dapat mendatangkan petaka bagi pelakunya.",
+                questions: [
+                    {
+                        q: "Berdasarkan penggalan cerita di atas, pencerita menggunakan sudut pandang...",
+                        options: ["Orang pertama pelaku utama", "Orang pertama pelaku sampingan", "Orang ketiga serba tahu", "Orang ketiga pengamat objektif"],
+                        ans: 2
+                    },
+                    {
+                        q: "Bagaimana latar suasana yang tergambar saat Roro Jonggrang memerintahkan membakar jerami dan menumbuk lesung?",
+                        options: ["Sunyi dan penuh kedamaian", "Riuh, panik, dan menegangkan", "Sedih dan mengharukan", "Megah dan penuh perayaan"],
+                        ans: 1
+                    },
+                    {
+                        q: "Sifat Roro Jonggrang yang mengajukan syarat membangun seribu candi menunjukkan penokohan yang...",
+                        options: ["Penakut dan mudah menyerah", "Sombong dan suka memerintah", "Cerdik namun banyak akal untuk menolak", "Kejam dan tidak kenal ampun"],
+                        ans: 2
+                    },
+                    {
+                        q: "Peristiwa saat Bandung Bondowoso mengutuk Roro Jonggrang menjadi arca batu merupakan tahapan alur...",
+                        options: ["Pengenalan (Orientasi)", "Munculnya Konflik", "Klimaks (Puncak Ketegangan)", "Penyelesaian (Resolusi)"],
+                        ans: 3
+                    },
+                    {
+                        q: "Amanat (pesan moral) paling utama dari akhir kisah legenda ini adalah...",
+                        options: ["Segala bentuk pemaksaan dan tipu daya akan berujung pada keburukan", "Sihir selalu bisa mengalahkan kecerdasan manusia", "Wanita tidak boleh menolak permintaan seorang raja", "Membangun candi membutuhkan bantuan makhluk gaib"],
+                        ans: 0
+                    }
+                ]
+            },
+            merapi: {
+                id: 'merapi',
+                title: "Gunung Merapi",
+                region: "Sleman, DIY",
+                image: "https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&w=800&q=80",
+                themeClasses: ["bg-red-950", "from-red-900", "to-orange-950"],
+                icon: "fa-mountain",
+                color: "text-red-400",
+                btnGradient: "from-red-400 to-amber-500",
+                story: "Pada zaman dahulu kala, susunan bumi di Pulau Jawa dirasa tidak seimbang dan miring ke arah barat. Di arah barat menjulang sebuah gunung raksasa bernama Gunung Jamurdipa. Para dewa di kahyangan, melihat ketidakseimbangan yang mengancam ini, memutuskan untuk memindahkan gunung tersebut ke tengah pulau, tepatnya di tanah yang kini masuk wilayah Sleman.\n\nDi lokasi hutan sunyi yang akan dijatuhi gunung tersebut, hiduplah dua empu pembuat keris pusaka yang sangat sakti, yaitu Mpu Rama dan Mpu Pamadi. Mereka memiliki watak teguh pendirian, berdedikasi tinggi terhadap karya mereka, namun cukup keras kepala. Di tengah rimbunnya pohon, mereka sibuk menempa keris dengan tungku perapian ajaib yang menyala terang dan pantang dibiarkan padam.\n\nUtusan dewa turun ke bumi untuk memperingatkan kedua empu tersebut agar segera memindahkan lokasi pertapaan mereka. Namun, alur konflik pun meruncing ketika kedua empu itu menolak mentah-mentah peringatan dewa. Mereka berdalih bahwa keris pusaka yang sedang dibuat adalah penyeimbang dunia, dan mematikan api perapian saat ini akan mengundang bencana yang lebih mengerikan.\n\nKetegangan memuncak antara kehendak langit dan pendirian manusia sakti. Karena keadaan darurat Pulau Jawa yang semakin miring ke lautan, para dewa terpaksa bertindak tegas. Dengan kekuatan gaib yang luar biasa, dewa menerbangkan Gunung Jamurdipa dan menjatuhkannya tepat di atas tempat Mpu Rama dan Mpu Pamadi berada, mengubur mereka dalam suasana bergemuruh yang dahsyat.\n\nTungku perapian pusaka yang tidak pernah padam itu tertimpa badan gunung dan kemudian berubah menjadi kawah yang terus menyala hingga kini, yang kita kenal sebagai Gunung Merapi. Teks ini bertemakan pengorbanan dan keseimbangan alam, menyiratkan amanat bahwa kepentingan umum yang lebih besar seringkali menuntut pengorbanan, dan ego melawan takdir bisa berakibat fatal.",
+                questions: [
+                    {
+                        q: "Peristiwa penempaan keris pusaka oleh Mpu Rama dan Mpu Pamadi berlatar tempat di...",
+                        options: ["Puncak Gunung Jamurdipa", "Tengah hutan yang menjadi target jatuhnya gunung", "Kahyangan para dewa", "Pantai pesisir barat Pulau Jawa"],
+                        ans: 1
+                    },
+                    {
+                        q: "Apa yang menjadi pemicu (inciting incident) awal para dewa memutuskan memindahkan Gunung Jamurdipa?",
+                        options: ["Posisi Pulau Jawa yang miring ke arah barat dan tidak seimbang", "Mpu Rama dan Pamadi membuat senjata yang terlalu berbahaya", "Terjadi letusan gunung berapi yang hebat", "Perintah langsung dari penguasa kerajaan setempat"],
+                        ans: 0
+                    },
+                    {
+                        q: "Tema sentral dari teks legenda Gunung Merapi di atas adalah...",
+                        options: ["Kisah cinta di antara dua empu sakti", "Upaya menjaga keseimbangan alam dan sebuah pengorbanan", "Pemberontakan manusia melawan penguasa", "Pembuatan senjata pusaka terkuat di dunia"],
+                        ans: 1
+                    },
+                    {
+                        q: "Bagaimana penokohan dari Mpu Rama dan Mpu Pamadi berdasarkan tanggapan mereka terhadap utusan dewa?",
+                        options: ["Penurut dan mudah mengalah", "Licik dan suka berbohong", "Teguh pendirian dan keras kepala pada keyakinannya", "Lemah lembut dan sangat bijaksana"],
+                        ans: 2
+                    },
+                    {
+                        q: "Amanat luhur apa yang bisa dipetik dari keputusan tegas para dewa?",
+                        options: ["Kepentingan umum untuk keselamatan bersama di atas kepentingan pribadi/golongan", "Manusia harus selalu berperang melawan dewa", "Jangan pernah membuat keris pusaka di dalam hutan", "Setiap gunung berapi pasti memiliki perapian gaib"],
+                        ans: 0
+                    }
+                ]
+            },
+            salatiga: {
+                id: 'salatiga',
+                title: "Asal-usul Salatiga",
+                region: "Salatiga, Jateng",
+                image: "https://commons.wikimedia.org/wiki/Special:FilePath/Alun-Alun_Pancasila_Kota_Salatiga.jpg?width=900",
+                fallbackImage: "https://commons.wikimedia.org/wiki/Special:FilePath/Alun-Alun_Pancasila_Salatiga.jpg?width=900",
+                themeClasses: ["bg-emerald-950", "from-emerald-900", "to-teal-950"],
+                icon: "fa-leaf",
+                color: "text-emerald-400",
+                btnGradient: "from-emerald-400 to-amber-500",
+                story: "Di masa penyebaran agama Islam di tanah Jawa, Sunan Kalijaga melakukan perjalanan dakwah untuk menguji seorang mantan bupati, Adipati Pandanaran. Dari penceritaan bersudut pandang orang ketiga ini, sang Adipati dulunya hidup bergelimang harta, namun kini ia telah insaf dan bertekad ingin menjadi murid Sunan Kalijaga dengan mengikuti jejak pengembaraannya ke selatan.\n\nSunan Kalijaga memberikan syarat yang sangat tegas: Adipati beserta istrinya boleh mengikutinya, asalkan mereka menanggalkan semua harta duniawi. Adipati Pandanaran mematuhi perintah itu dengan hati yang lapang. Namun, sang istri yang berwatak materialistis, diam-diam memasukkan banyak perhiasan emas dan permata ke dalam rongga tongkat bambunya sebagai bekal.\n\nMereka pun berjalan beriringan melintasi bukit dan hutan. Sunan Kalijaga berada di depan, Adipati di tengah, sementara sang istri tertinggal jauh di belakang karena kelelahan membawa tongkat yang berat. Di tengah perjalanan yang sepi dan menegangkan, melompatlah tiga orang perampok sakti dari semak-semak. Karena tak menemukan harta pada Sunan dan Adipati, perampok itu mengadang sang istri di belakang.\n\nIstri Adipati menjerit ketakutan saat perampok merebut paksa tongkat bambunya, menumpahkan kilauan emas permata ke tanah. Menyadari keributan itu, Sunan Kalijaga dan Adipati segera kembali. Alih-alih menghukum perampok, Sunan Kalijaga menatap istri Adipati dan menegurnya dengan nada kecewa karena masih terbelenggu oleh kemewahan duniawi.\n\nSunan Kalijaga kemudian bersabda bahwa di tempat kejadian ini telah tercipta tiga kesalahan: menyembunyikan harta, berbohong, dan memancing orang lain berbuat dosa. Tempat jatuhnya harta itu akhirnya dinamakan 'Salah Tiga' (Salatiga). Legenda ini meninggalkan amanat bahwa manusia harus menjauhi sifat serakah, karena kebohongan pasti terbongkar dan mengundang malapetaka.",
+                questions: [
+                    {
+                        q: "Perbedaan penokohan yang sangat mencolok antara Adipati Pandanaran dan istrinya adalah...",
+                        options: ["Adipati pemarah, istrinya penyabar", "Adipati ikhlas meninggalkan duniawi, istrinya materialistis", "Adipati sakti mandraguna, istrinya penakut", "Adipati pelit, istrinya sangat dermawan"],
+                        ans: 1
+                    },
+                    {
+                        q: "Suasana yang terbangun sesaat sebelum perampok melompat mengadang istri Adipati adalah...",
+                        options: ["Sepi, melelahkan, dan menegangkan", "Ramai, ceria, dan penuh tawa", "Megah, terang, dan berangin", "Sedih, murung, dan gelap gulita"],
+                        ans: 0
+                    },
+                    {
+                        q: "Pesan moral (amanat) yang ditekankan melalui sabda Sunan Kalijaga tentang 'tiga kesalahan' adalah...",
+                        options: ["Harus pandai menyembunyikan barang berharga saat bepergian", "Berbohong dan keserakahan hanya akan mengundang musibah bagi diri sendiri", "Perampok selalu menang jika kita membawa tongkat bambu", "Seorang istri tidak boleh mengikuti perjalanan suaminya"],
+                        ans: 1
+                    },
+                    {
+                        q: "Bagian manakah yang merupakan puncak konflik (klimaks) dari alur cerita ini?",
+                        options: ["Adipati Pandanaran insaf dari kesalahannya", "Sunan Kalijaga memulai perjalanan dakwah", "Istri Adipati memasukkan emas ke dalam bambu", "Tongkat dirampas perampok dan rahasia istri terbongkar"],
+                        ans: 3
+                    },
+                    {
+                        q: "Secara keseluruhan, teks legenda Salatiga ini mengangkat tema tentang...",
+                        options: ["Pendidikan moral tentang keikhlasan dan bahaya keterikatan harta", "Kisah asmara antara Adipati dan Istrinya", "Perjuangan fisik melawan penjahat sakti", "Keindahan alam kota Salatiga di masa lalu"],
+                        ans: 0
+                    }
+                ]
+            },
+            solo: {
+                id: 'solo',
+                title: "Ki Gede Sala",
+                region: "Solo, Jateng",
+                image: "https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?auto=format&fit=crop&w=600&q=80",
+                themeClasses: ["bg-amber-950", "from-amber-900", "to-yellow-950"],
+                icon: "fa-gopuram",
+                color: "text-amber-400",
+                btnGradient: "from-amber-400 to-yellow-500",
+                story: "Pada pertengahan abad ke-18, riwayat Kerajaan Mataram Islam sedang berada dalam masa kelam. Keraton Kartasura hancur lebur dibakar api pemberontakan. Sri Susuhunan Pakubuwono II, sang raja yang bertahta, merasa perlu segera memindahkan pusat kerajaannya ke lokasi yang lebih aman. Pencarian lahan baru pun dilakukan menuju ke arah timur, ke daerah aliran Bengawan.\n\nPilihan abdi dalem jatuh pada Desa Sala, sebuah wilayah rawa-rawa yang tenang nan subur. Desa ini dipimpin oleh seorang sesepuh yang sangat dihormati bernama Ki Gede Sala. Berbeda dengan pejabat yang gila harta, tokoh protagonis ini berwatak sangat rendah hati, mencintai kedamaian, dan selalu mengutamakan kesejahteraan warganya di atas segala-galanya.\n\nUtusan keraton mendatangi rumah Ki Gede Sala untuk menyampaikan niat sang raja menempati tanah desanya. Tanpa menuntut harga yang tinggi, Ki Gede Sala dengan tulus dan ikhlas menyerahkan desanya kepada keraton. Ia berpandangan bahwa pengorbanan kecilnya ini sangat penting demi memulihkan kejayaan dan stabilitas kerajaan Mataram.\n\nAlur beranjak menuju resolusi saat proses pengurukan rawa-rawa raksasa dimulai, diwarnai suasana gotong royong yang harmonis dari seluruh rakyat. Ki Gede Sala sendiri terus membantu hingga akhir hayatnya. Pada tahun 1745, istana baru itu resmi berdiri dan diberi nama Keraton Surakarta Hadiningrat, membawa fajar baru bagi peradaban Jawa.\n\nMeskipun nama resminya adalah Surakarta, rakyat awam dari berbagai sudut pandang zaman tetap lebih suka menyebutnya sebagai Kota Solo. Hal ini merupakan bentuk penghormatan abadi atas kebesaran jiwa kepala desa tersebut. Kisah ini mewariskan amanat berharga bahwa keikhlasan berkorban demi kepentingan negara akan mencetak sejarah yang tak lekang oleh waktu.",
+                questions: [
+                    {
+                        q: "Di manakah latar tempat asli wilayah Desa Sala sebelum dibangun menjadi keraton megah?",
+                        options: ["Di puncak bukit yang kering", "Di area rawa-rawa yang subur dekat sungai (Bengawan)", "Di tengah hutan pinus yang lebat", "Di pesisir pantai laut selatan"],
+                        ans: 1
+                    },
+                    {
+                        q: "Penokohan Ki Gede Sala yang paling menonjol sehingga namanya diabadikan oleh rakyat adalah...",
+                        options: ["Ambisius dan ingin menjadi raja", "Rela berkorban, ikhlas, dan merakyat", "Sakti mandraguna dan kejam", "Pemalas namun sangat cerdas"],
+                        ans: 1
+                    },
+                    {
+                        q: "Peristiwa hancurnya Keraton Kartasura dalam struktur alur berfungsi sebagai...",
+                        options: ["Pengenalan masalah (Latar belakang konflik awal)", "Klimaks (Puncak cerita)", "Resolusi (Penyelesaian akhir)", "Koda (Pesan moral penutup)"],
+                        ans: 0
+                    },
+                    {
+                        q: "Amanat (pesan moral) apa yang dapat dipetik dari kerelaan Ki Gede Sala?",
+                        options: ["Rakyat biasa tidak boleh menentang perintah raja", "Pengorbanan ikhlas demi kebaikan bersama akan menghasilkan penghormatan abadi", "Desa rawa tidak cocok untuk tempat tinggal", "Kejayaan kerajaan hanya bisa dicapai melalui peperangan"],
+                        ans: 1
+                    },
+                    {
+                        q: "Penggalan cerita legenda sejarah Ki Gede Sala ini ditulis dengan menggunakan sudut pandang...",
+                        options: ["Orang pertama (Aku)", "Orang kedua (Kamu/Kalian)", "Orang ketiga serba tahu/pengamat", "Campuran pertama dan kedua"],
+                        ans: 2
+                    }
+                ]
+            },
+            kidul: {
+                id: 'kidul',
+                title: "Nyi Roro Kidul",
+                region: "Pesisir Selatan, DIY",
+                image: "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&w=600&q=80",
+                themeClasses: ["bg-cyan-950", "from-blue-900", "to-cyan-950"],
+                icon: "fa-water",
+                color: "text-cyan-400",
+                btnGradient: "from-cyan-400 to-amber-500",
+                story: "Di lingkup Kerajaan Pajajaran masa lampau, hiduplah seorang putri raja yang teramat jelita bernama Putri Kadita. Kecantikannya yang memukau dan budi pekertinya yang halus dipuja oleh rakyat di istana. Namun, keindahan rupa itu justru memantik api dengki yang kelam di hati para selir istana, sebuah konflik klasik yang sering terekam dalam sudut pandang sejarah kerajaan.\n\nSeorang selir berwatak culas, iri hati, dan penuh ambisi, diam-diam menyewa dukun beraliran ilmu hitam untuk menyingkirkan Putri Kadita. Dalam waktu semalam, tubuh Kadita yang mulus berubah drastis menjadi penuh kudis dan borok yang memancarkan bau busuk. Raja yang malu dan termakan hasutan manipulatif selirnya, menjatuhkan titah kejam untuk mengusir sang putri kandung dari keraton.\n\nBerbulan-bulan lamanya Putri Kadita mengembara tanpa arah dengan hati yang hancur berkeping-keping. Ia menyusuri belantara dalam latar suasana yang sarat akan penderitaan, keputusasaan, dan kesunyian mencekam, dijauhi oleh siapa pun yang berpapasan dengannya. Langkah gontainya akhirnya berhenti di tepi sebuah tebing karang terjal yang berbatasan langsung dengan gemuruh Samudra Hindia di selatan.\n\nDi tengah deburan ombak raksasa yang menabrak karang, alur cerita mencapai klimaksnya. Kadita mendengar sebuah bisikan gaib dari dasar samudra yang menyuruhnya melompat ke dalam air untuk menyembuhkan penyakitnya. Tanpa rasa takut, ia menceburkan diri. Secara menakjubkan, air laut itu meluruhkan segala kutukan dan mengembalikan kecantikannya berlipat ganda, menjadikannya abadi.\n\nNamun, takdir agung menentukan bahwa Kadita tidak bisa kembali ke alam manusia. Ia diangkat menjadi ratu penguasa keraton gaib laut selatan, bergelar Kanjeng Ratu Nyi Roro Kidul. Legenda magis ini menyimpan amanat bahwa rasa iri dengki hanya akan merusak kehidupan, namun di balik penderitaan orang yang terzalimi, Tuhan kerap menempatkan derajat yang lebih tinggi di luar nalar manusia.",
+                questions: [
+                    {
+                        q: "Tokoh antagonis (selir) yang menjadi penyebab utama penderitaan Putri Kadita memiliki perwatakan...",
+                        options: ["Pemaaf dan penuh kasih sayang", "Pendengki, licik, dan menghalalkan segala cara", "Tegas, disiplin, dan berwibawa", "Lemah lembut namun mudah dipengaruhi"],
+                        ans: 1
+                    },
+                    {
+                        q: "Perjalanan pengusiran Putri Kadita dari istana hingga tiba di tebing selatan diselimuti oleh suasana yang...",
+                        options: ["Penuh keputusasaan, pedih, dan tersiksa", "Menyenangkan dan penuh petualangan", "Tegang akibat peperangan bersenjata", "Misterius namun menggembirakan"],
+                        ans: 0
+                    },
+                    {
+                        q: "Tahapan alur yang merupakan resolusi (penyelesaian akhir) dari rentetan nasib Putri Kadita adalah...",
+                        options: ["Selir menyewa dukun ilmu hitam", "Raja mengusir Putri Kadita dari istana", "Kadita mendengar bisikan ombak di tebing", "Kadita sembuh dari kutukan dan menjadi penguasa laut gaib"],
+                        ans: 3
+                    },
+                    {
+                        q: "Amanat utama yang ingin disampaikan pengarang dari penderitaan awal Putri Kadita adalah...",
+                        options: ["Sifat iri hati dan dengki pada kelebihan orang lain adalah sifat yang merusak", "Ilmu hitam adalah kekuatan yang tidak bisa dikalahkan", "Seorang raja harus selalu mendengarkan nasihat selirnya", "Lautan adalah tempat pelarian yang paling aman bagi buronan"],
+                        ans: 0
+                    },
+                    {
+                        q: "Secara intrinsik, teks di atas secara dominan mengangkat tema mengenai...",
+                        options: ["Kehebatan prajurit kerajaan pesisir", "Penderitaan akibat kutukan iri hati dan takdir kekuasaan gaib", "Eksplorasi keindahan pesisir pantai selatan Yogyakarta", "Pemberontakan seorang anak perempuan kepada ayahnya"],
+                        ans: 1
+                    }
+                ]
+            }
+        };
+
+        let activeLegend = null;
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let textInterval = null;
+        let isSpeaking = false;
+        let completedLegends = {};
+
+        // Muat gambar kustom dari penyimpanan browser jika sudah pernah diunggah
+        try {
+            const savedCustomImages = JSON.parse(localStorage.getItem('nusantara_custom_images') || '{}');
+            for (const key in savedCustomImages) {
+                if (legendsData[key]) {
+                    legendsData[key].image = savedCustomImages[key];
+                }
+            }
+        } catch (e) {}
+
+        // Fungsi untuk mengganti gambar secara langsung dari file lokal pengguna
+        function handleImageUpload(event, legendKey) {
+            event.stopPropagation();
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const dataUrl = e.target.result;
+                legendsData[legendKey].image = dataUrl;
+                try {
+                    const saved = JSON.parse(localStorage.getItem('nusantara_custom_images') || '{}');
+                    saved[legendKey] = dataUrl;
+                    localStorage.setItem('nusantara_custom_images', JSON.stringify(saved));
+                } catch (err) {}
+                
+                if (activeLegend && activeLegend.id === legendKey) {
+                    const storyImg = document.getElementById('active-story-img');
+                    if (storyImg) storyImg.src = dataUrl;
+                } else {
+                    renderMenu();
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Inisialisasi Web Audio API untuk Efek Suara (Synthesizer sederhana)
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        let audioCtx = null;
+        
+        function playSound(type) {
+            try {
+                if (!audioCtx) audioCtx = new AudioContextClass();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                
+                const oscillator = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+                
+                if (type === 'click') {
+                    oscillator.type = 'sine';
+                    oscillator.frequency.setValueAtTime(600, audioCtx.currentTime);
+                    oscillator.frequency.exponentialRampToValueAtTime(300, audioCtx.currentTime + 0.1);
+                    gainNode.gain.setValueAtTime(0.08, audioCtx.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
+                    oscillator.start();
+                    oscillator.stop(audioCtx.currentTime + 0.1);
+                } else if (type === 'correct') {
+                    oscillator.type = 'triangle';
+                    oscillator.frequency.setValueAtTime(440, audioCtx.currentTime);
+                    oscillator.frequency.setValueAtTime(660, audioCtx.currentTime + 0.1);
+                    gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+                    gainNode.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.35);
+                    oscillator.start();
+                    oscillator.stop(audioCtx.currentTime + 0.35);
+                } else if (type === 'wrong') {
+                    oscillator.type = 'sawtooth';
+                    oscillator.frequency.setValueAtTime(280, audioCtx.currentTime);
+                    oscillator.frequency.exponentialRampToValueAtTime(110, audioCtx.currentTime + 0.3);
+                    gainNode.gain.setValueAtTime(0.08, audioCtx.currentTime);
+                    gainNode.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.3);
+                    oscillator.start();
+                    oscillator.stop(audioCtx.currentTime + 0.3);
+                }
+            } catch (e) {
+                // Abaikan jika browser memblokir audio otomatis
+            }
+        }
+
+        function toggleSpeech(text) {
+            if ('speechSynthesis' in window) {
+                if (isSpeaking) {
+                    window.speechSynthesis.cancel();
+                    isSpeaking = false;
+                    const icon = document.getElementById('tts-btn-icon');
+                    const label = document.getElementById('tts-btn-text');
+                    if (icon) icon.className = 'fas fa-volume-up';
+                    if (label) label.innerText = 'Dengarkan Cerita';
+                } else {
+                    window.speechSynthesis.cancel();
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    utterance.lang = 'id-ID';
+                    utterance.rate = 0.95;
+                    utterance.pitch = 1.0;
+                    
+                    utterance.onend = () => {
+                        isSpeaking = false;
+                        const icon = document.getElementById('tts-btn-icon');
+                        const label = document.getElementById('tts-btn-text');
+                        if (icon) icon.className = 'fas fa-volume-up';
+                        if (label) label.innerText = 'Dengarkan Cerita';
+                    };
+
+                    window.speechSynthesis.speak(utterance);
+                    isSpeaking = true;
+                    const icon = document.getElementById('tts-btn-icon');
+                    const label = document.getElementById('tts-btn-text');
+                    if (icon) icon.className = 'fas fa-stop-circle';
+                    if (label) label.innerText = 'Hentikan Suara';
+                }
+            } else {
+                showModal("Maaf, peramban Anda belum mendukung fitur pembaca suara otomatis.");
+            }
+        }
+
+        function stopSpeech() {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+            }
+        }
+
+        function renderMenu() {
+            stopSpeech();
+            clearInterval(textInterval);
+            document.getElementById('app-body').className = "min-h-screen flex flex-col font-sans transition-colors duration-700 bg-slate-900";
+            document.getElementById('game-header').classList.remove('hidden');
+            
+            let html = `
+                <div class="text-center mb-10 animate-fade-in">
+                    
+                    <!-- Hero Image Banner -->
+                    <div class="w-full max-w-4xl mx-auto rounded-2xl overflow-hidden mb-8 relative shadow-[0_10px_30px_rgba(0,0,0,0.5)] h-56 md:h-72 border border-slate-700 group">
+                        <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=1200&q=80" 
+                             onerror="this.src='https://placehold.co/1200x400/1e293b/fbbf24?text=Echoes+of+Nusantara'"
+                             alt="Ilustrasi Legenda Nusantara" 
+                             class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-left">
+                            <span class="bg-amber-500 text-slate-900 text-xs font-bold px-3 py-1 rounded-full mb-3 inline-block shadow-lg tracking-wider uppercase">Materi Interaktif</span>
+                            <h2 class="text-2xl md:text-4xl font-serif font-bold text-white shadow-sm mb-1">Jelajahi Legenda Nusantara</h2>
+                            <p class="text-slate-300 text-sm md:text-base hidden md:block">Temukan unsur intrinsik (tema, alur, latar, penokohan, sudut pandang, & amanat) dari kisah warisan leluhur kita.</p>
+                        </div>
+                    </div>
+
+                    <p class="text-base md:text-lg text-slate-300 mb-6">Pilih salah satu gulungan legenda di bawah ini untuk mulai membaca dan menganalisis ceritanya:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-2">
+            `;
+
+            for (const key in legendsData) {
+                const leg = legendsData[key];
+                const badgeScore = completedLegends[key] !== undefined 
+                    ? `<span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-500/90 text-slate-950 shadow flex items-center gap-1"><i class="fas fa-check-circle"></i> Skor: ${completedLegends[key]}/${leg.questions.length}</span>`
+                    : '';
+                const fallbackUrl = leg.fallbackImage || `https://placehold.co/600x400/1e293b/fbbf24?text=${encodeURIComponent(leg.title)}`;
+
+                html += `
+                    <div class="glass-panel hover:-translate-y-2 transition-all duration-300 rounded-2xl text-left group border border-slate-700 hover:border-amber-400 overflow-hidden flex flex-col shadow-xl relative">
+                        
+                        <!-- Area Gambar -->
+                        <div class="w-full h-48 relative overflow-hidden bg-slate-800 cursor-pointer" onclick="startStory('${key}')">
+                            <img src="${leg.image}" 
+                                 onerror="this.onerror=null; this.src='${fallbackUrl}';" 
+                                 alt="${leg.title}" 
+                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-85 group-hover:opacity-100">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                            
+                            <!-- Label Skor Selesai -->
+                            <div class="absolute top-3 left-3 z-10">
+                                ${badgeScore}
+                            </div>
+
+                            <!-- Label Kota -->
+                            <div class="absolute top-3 right-3 z-10">
+                                <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-black/65 backdrop-blur text-slate-200 border border-white/20 shadow-sm flex items-center">
+                                    <i class="fas fa-map-marker-alt mr-1.5 text-amber-400"></i> ${leg.region}
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Tombol Ganti Foto Kustom -->
+                        <label onclick="event.stopPropagation()" class="absolute top-36 right-3 z-20 cursor-pointer bg-slate-900/85 hover:bg-amber-500 hover:text-slate-950 text-amber-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-400/40 backdrop-blur shadow-lg transition-all flex items-center gap-1.5" title="Pakai file foto dari komputer/HP Anda">
+                            <i class="fas fa-camera"></i> Ganti Foto
+                            <input type="file" accept="image/*" class="hidden" onchange="handleImageUpload(event, '${key}')">
+                        </label>
+
+                        <!-- Area Teks -->
+                        <div onclick="startStory('${key}')" class="p-5 flex-grow relative z-10 bg-slate-900/60 flex flex-col justify-between cursor-pointer">
+                            <div>
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-10 h-10 shrink-0 rounded-full bg-slate-800 flex items-center justify-center border border-slate-600 shadow-inner transition-colors group-hover:border-amber-400">
+                                        <i class="fas ${leg.icon} text-lg ${leg.color} group-hover:scale-110 transition-transform"></i>
+                                    </div>
+                                    <h3 class="text-xl font-serif font-bold text-white group-hover:text-amber-300 transition-colors">${leg.title}</h3>
+                                </div>
+                                <p class="text-sm text-slate-400 group-hover:text-slate-300 transition-colors pl-[3.25rem]">Analisis 5 soal unsur intrinsik cerita ini.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                `;
+            }
+
+            html += `
+                    </div>
+                </div>
+            `;
+            document.getElementById('content-area').innerHTML = html;
+        }
+
+        function startStory(legendId) {
+            playSound('click');
+            stopSpeech();
+            clearInterval(textInterval);
+            activeLegend = legendsData[legendId];
+            
+            // Ubah tema warna background
+            const body = document.getElementById('app-body');
+            body.className = `min-h-screen flex flex-col font-sans transition-colors duration-1000 bg-gradient-to-br ${activeLegend.themeClasses.join(' ')}`;
+            
+            document.getElementById('game-header').classList.add('hidden');
+            const fallbackUrl = activeLegend.fallbackImage || `https://placehold.co/800x400/1e293b/fbbf24?text=${encodeURIComponent(activeLegend.title)}`;
+
+            const html = `
+                <div class="max-w-3xl mx-auto w-full animate-fade-in">
+                    <div class="flex items-center justify-between mb-6">
+                        <button onclick="renderMenu()" class="text-slate-300 hover:text-white bg-black/25 hover:bg-black/40 px-4 py-2 rounded-full transition-colors flex items-center gap-2 text-sm border border-white/10">
+                            <i class="fas fa-arrow-left"></i> Kembali ke Daftar
+                        </button>
+                        <span class="px-3.5 py-1.5 bg-black/35 rounded-full text-sm font-semibold border border-white/10 ${activeLegend.color}">
+                            <i class="fas fa-map-marker-alt mr-1"></i> ${activeLegend.region}
+                        </span>
+                    </div>
+
+                    <div class="glass-panel rounded-2xl overflow-hidden shadow-2xl relative">
+                        <!-- Gambar Banner Cerita -->
+                        <div class="w-full h-56 md:h-72 relative overflow-hidden bg-slate-800">
+                            <img id="active-story-img" src="${activeLegend.image}" 
+                                 onerror="this.onerror=null; this.src='${fallbackUrl}';" 
+                                 alt="${activeLegend.title}" 
+                                 class="w-full h-full object-cover opacity-90">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/30 to-transparent"></div>
+                            
+                            <!-- Tombol Ganti Foto di Dalam Cerita -->
+                            <label class="absolute top-4 right-4 z-20 cursor-pointer bg-black/60 hover:bg-amber-500 hover:text-slate-950 text-white text-xs font-semibold px-3.5 py-2 rounded-full border border-white/20 backdrop-blur shadow-lg transition-all flex items-center gap-2">
+                                <i class="fas fa-camera"></i> Ganti Foto Candi
+                                <input type="file" accept="image/*" class="hidden" onchange="handleImageUpload(event, '${activeLegend.id}')">
+                            </label>
+
+                            <div class="absolute bottom-4 left-6 md:left-10 right-6">
+                                <h2 class="text-3xl md:text-5xl font-serif font-bold text-white drop-shadow-lg">${activeLegend.title}</h2>
+                            </div>
+                        </div>
+
+                        <div class="p-6 md:p-10 pt-4 md:pt-6 relative">
+                            <!-- Dekorasi Latar -->
+                            <div class="absolute -right-8 bottom-4 opacity-5 pointer-events-none">
+                                <i class="fas ${activeLegend.icon} text-9xl"></i>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-3 mb-6">
+                                <button id="tts-btn" onclick="toggleSpeech(activeLegend.story)" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 shadow-lg">
+                                    <i id="tts-btn-icon" class="fas fa-volume-up"></i> <span id="tts-btn-text">Dengarkan Cerita</span>
+                                </button>
+                                <button id="skip-type-btn" onclick="finishTypingImmediately()" class="bg-slate-700/80 hover:bg-slate-600 text-slate-200 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 border border-white/10">
+                                    <i class="fas fa-forward"></i> Tampilkan Semua Teks
+                                </button>
+                            </div>
+
+                            <div class="min-h-[220px] mb-8 bg-black/20 p-5 md:p-6 rounded-xl border border-white/5">
+                                <p id="story-text" class="text-base md:text-lg leading-relaxed text-slate-200 whitespace-pre-line typewriter-text"></p>
+                            </div>
+
+                            <div class="flex justify-end hidden" id="next-btn-container">
+                                <button onclick="startQuiz()" class="bg-gradient-to-r ${activeLegend.btnGradient} text-slate-950 font-bold px-7 py-3.5 rounded-full hover:scale-105 transition-transform shadow-xl flex items-center gap-2.5">
+                                    Analisis Cerita Ini <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('content-area').innerHTML = html;
+
+            // Jalankan Efek Mesin Tik
+            const storyElement = document.getElementById('story-text');
+            const fullText = activeLegend.story;
+            let i = 0;
+            storyElement.textContent = '';
+            
+            textInterval = setInterval(() => {
+                storyElement.textContent += fullText.charAt(i);
+                i++;
+                if (i >= fullText.length) {
+                    finishTypingImmediately();
+                }
+            }, 20);
+        }
+
+        function finishTypingImmediately() {
+            clearInterval(textInterval);
+            const storyElement = document.getElementById('story-text');
+            if (storyElement && activeLegend) {
+                storyElement.textContent = activeLegend.story;
+                storyElement.classList.remove('typewriter-text');
+            }
+            const nextBtn = document.getElementById('next-btn-container');
+            if (nextBtn) {
+                nextBtn.classList.remove('hidden');
+                nextBtn.classList.add('animate-fade-in');
+            }
+            const skipBtn = document.getElementById('skip-type-btn');
+            if (skipBtn) {
+                skipBtn.classList.add('hidden');
+            }
+        }
+
+        function startQuiz() {
+            stopSpeech();
+            clearInterval(textInterval);
+            playSound('click');
+            currentQuestionIndex = 0;
+            score = 0;
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const qData = activeLegend.questions[currentQuestionIndex];
+            
+            let html = `
+                <div class="max-w-4xl mx-auto w-full animate-fade-in relative">
+                    <!-- Header Ujian -->
+                    <div class="flex flex-wrap justify-between items-center gap-2 mb-8 px-2">
+                        <div class="flex items-center gap-3">
+                            <button onclick="startStory('${activeLegend.id}')" class="text-xs bg-black/30 hover:bg-black/50 text-slate-300 px-3 py-1.5 rounded-full border border-white/10 transition-colors">
+                                <i class="fas fa-book-open mr-1"></i> Baca Teks
+                            </button>
+                            <h3 class="text-lg md:text-xl font-serif text-slate-300">Uji Analisis: <span class="${activeLegend.color} font-bold">${activeLegend.title}</span></h3>
+                        </div>
+                        <div class="text-sm font-bold bg-black/40 px-4 py-1.5 rounded-full border border-white/10 text-slate-300 shadow-inner">
+                            Pertanyaan ${currentQuestionIndex + 1} / ${activeLegend.questions.length}
+                        </div>
+                    </div>
+
+                    <!-- Struktur Diagram Pohon -->
+                    <div class="relative w-full pt-2 pb-10 flex flex-col items-center">
+                        
+                        <!-- Akar (Root/Question) -->
+                        <div class="relative z-20 bg-slate-800/95 backdrop-blur border-t-4 border-t-amber-500 border border-slate-600 p-6 md:p-8 rounded-2xl shadow-2xl text-center w-full max-w-2xl">
+                             <p class="text-lg md:text-2xl font-medium text-white leading-relaxed">${qData.q}</p>
+                        </div>
+
+                        <!-- Batang Utama Atas -->
+                        <div class="w-2.5 h-10 bg-gradient-to-b from-amber-500 to-amber-700 relative z-10 shadow-lg"></div>
+
+                        <!-- Area Ranting (Branches) -->
+                        <div class="relative w-full max-w-3xl">
+                             <!-- Batang Utama Vertikal (Trunk) -->
+                             <div class="absolute left-1/2 top-0 bottom-6 w-2.5 bg-amber-800/80 -translate-x-1/2 shadow-[0_0_15px_rgba(217,119,6,0.3)] rounded-b-full"></div>
+
+                             <div class="flex flex-col gap-6 md:gap-8 w-full relative z-10 px-4 md:px-0">
+            `;
+
+            qData.options.forEach((opt, idx) => {
+                const isLeft = idx % 2 === 0;
+                
+                html += `
+                                <!-- Ranting ${idx + 1} -->
+                                <div class="flex w-full ${isLeft ? 'md:justify-start' : 'md:justify-end'} justify-center relative items-center group/branch">
+                                    
+                                    <!-- Garis Ranting Horizontal (Desktop) -->
+                                    <div class="absolute top-1/2 left-1/2 w-[45%] h-1.5 bg-amber-700/80 -translate-y-1/2 ${isLeft ? '-translate-x-full' : 'translate-x-0'} hidden md:block transition-colors duration-300 group-hover/branch:bg-amber-400"></div>
+                                    
+                                    <!-- Garis Ranting Horizontal (Mobile) -->
+                                    <div class="absolute top-1/2 left-1/2 w-full h-1 bg-amber-700/50 -translate-y-1/2 -translate-x-1/2 md:hidden z-0"></div>
+
+                                    <!-- Daun/Pilihan Jawaban -->
+                                    <button onclick="checkAnswer(${idx})" class="relative z-10 w-full md:w-[46%] text-left p-4 md:p-5 rounded-2xl border-2 border-slate-600 bg-slate-800 shadow-xl hover:bg-slate-700 hover:-translate-y-1 hover:border-amber-400 hover:shadow-[0_10px_20px_rgba(245,158,11,0.2)] transition-all text-slate-200 font-medium option-btn group overflow-hidden">
+                                        
+                                        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                                        
+                                        <div class="flex items-start gap-4 relative z-10 pr-6">
+                                            <span class="w-10 h-10 shrink-0 rounded-full bg-slate-900 flex items-center justify-center text-lg font-bold border-2 border-slate-600 group-hover:bg-amber-500 group-hover:text-slate-900 group-hover:border-amber-400 transition-colors shadow-inner">${String.fromCharCode(65 + idx)}</span>
+                                            <span class="pt-1.5 leading-relaxed text-sm md:text-base">${opt}</span>
+                                        </div>
+                                    </button>
+                                </div>
+                `;
+            });
+
+            html += `
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('content-area').innerHTML = html;
+        }
+
+        function checkAnswer(selectedIndex) {
+            const qData = activeLegend.questions[currentQuestionIndex];
+            const isCorrect = selectedIndex === qData.ans;
+            const btns = document.querySelectorAll('.option-btn');
+            
+            btns.forEach(btn => btn.disabled = true);
+
+            if (isCorrect) {
+                playSound('correct');
+                score++;
+                btns[selectedIndex].classList.add('bg-green-600/40', 'border-green-500');
+                btns[selectedIndex].insertAdjacentHTML('beforeend', `<i class="fas fa-check-circle absolute right-4 top-1/2 -translate-y-1/2 text-2xl text-green-400"></i>`);
+            } else {
+                playSound('wrong');
+                btns[selectedIndex].classList.add('bg-red-600/40', 'border-red-500');
+                btns[selectedIndex].insertAdjacentHTML('beforeend', `<i class="fas fa-times-circle absolute right-4 top-1/2 -translate-y-1/2 text-2xl text-red-400"></i>`);
+                btns[qData.ans].classList.add('bg-green-600/20', 'border-green-500');
+            }
+
+            setTimeout(() => {
+                currentQuestionIndex++;
+                if (currentQuestionIndex < activeLegend.questions.length) {
+                    renderQuestion();
+                } else {
+                    renderResult();
+                }
+            }, 1400);
+        }
+
+        function renderResult() {
+            playSound('click');
+            const totalQ = activeLegend.questions.length;
+            const percentage = Math.round((score / totalQ) * 100);
+            
+            // Simpan skor terbaik
+            if (completedLegends[activeLegend.id] === undefined || score > completedLegends[activeLegend.id]) {
+                completedLegends[activeLegend.id] = score;
+            }
+
+            let message = "";
+            let icon = "";
+            if (percentage === 100) {
+                message = "Sempurna! Kamu memiliki insting analisis sastra yang luar biasa.";
+                icon = "fa-crown text-yellow-400";
+            } else if (percentage >= 60) {
+                message = "Kerja bagus! Kamu sudah memahami sebagian besar unsur intrinsik legenda ini.";
+                icon = "fa-star text-amber-300";
+            } else {
+                message = "Jangan menyerah! Mari kita baca kembali ceritanya dengan lebih teliti.";
+                icon = "fa-book-open text-blue-300";
+            }
+
+            const html = `
+                <div class="max-w-md mx-auto w-full text-center animate-fade-in">
+                    <div class="glass-panel rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-0"></div>
+                        
+                        <div class="relative z-10">
+                            <i class="fas ${icon} text-6xl mb-6 animate-bounce-slow"></i>
+                            <h2 class="text-3xl font-serif font-bold text-white mb-2">Analisis Selesai</h2>
+                            <p class="text-slate-300 mb-8">${message}</p>
+                            
+                            <div class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-yellow-500 mb-2">
+                                ${score} <span class="text-2xl text-slate-400">/ ${totalQ}</span>
+                            </div>
+                            <p class="text-sm font-semibold tracking-wider text-slate-400 uppercase mb-8">Skor Akhir (${percentage}%)</p>
+                            
+                            <div class="flex flex-col gap-3">
+                                <button onclick="startQuiz()" class="w-full bg-slate-700 hover:bg-slate-600 text-white font-semibold py-3.5 rounded-xl transition-colors shadow flex justify-center items-center gap-2">
+                                    <i class="fas fa-redo"></i> Ulangi Kuis
+                                </button>
+                                <button onclick="renderMenu()" class="w-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold py-4 rounded-xl transition-colors shadow-lg flex justify-center items-center gap-2">
+                                    <i class="fas fa-home"></i> Kembali ke Menu Utama
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('content-area').innerHTML = html;
+        }
+
+        function showModal(msg) {
+            const modalHtml = `
+                <div id="custom-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 animate-fade-in px-4">
+                    <div class="bg-slate-800 border border-slate-600 rounded-xl p-6 max-w-sm w-full text-center shadow-2xl">
+                        <i class="fas fa-exclamation-circle text-4xl text-amber-400 mb-4"></i>
+                        <p class="text-white text-lg mb-6">${msg}</p>
+                        <button onclick="document.getElementById('custom-modal').remove()" class="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold px-6 py-2 rounded-lg transition-colors">
+                            Mengerti
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
+        }
+
+        // Jalankan game saat halaman dimuat
+        window.onload = () => {
+            renderMenu();
+        };
+    </script>
+</body>
+</html>
