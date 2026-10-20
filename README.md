@@ -1,0 +1,1 @@
+# Teks-Legenda-Audio-Visual-unsur-intrinsik
